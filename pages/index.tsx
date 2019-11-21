@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Mutation } from "react-apollo";
-import Link from "next/link"
+import Link from "next/link";
 import gql from "graphql-tag";
 import Layout from "../components/Layout";
-import { NextPage } from "next"
+import { NextPage } from "next";
 
 const IndexPage: NextPage = () => {
   return (
@@ -16,7 +16,7 @@ const IndexPage: NextPage = () => {
       </p>
       <Mutation
         mutation={gql`
-          mutation{
+          mutation {
             login(password: "password", email: "test@test.com") {
               id
               firstName
@@ -27,13 +27,19 @@ const IndexPage: NextPage = () => {
           }
         `}
       >
-        {(mutate: () => any) => (<button onClick={async () => {
-          const response = await mutate();
-          console.log({ response });
-        }}>Login</button>)}
+        {(mutate: () => any) => (
+          <button
+            onClick={async () => {
+              const response = await mutate();
+              console.log({ response });
+            }}
+          >
+            Login
+          </button>
+        )}
       </Mutation>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
