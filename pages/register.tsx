@@ -10,16 +10,30 @@ export default () => (
     <RegisterComponent>
       {register => (
         <Formik
+          validateOnBlur={false}
+          validateOnChange={false}
           initialValues={{
             firstName: "",
             lastName: "",
             email: "",
             password: ""
           }}
-          onSubmit={async data => {
-            const res = await register({ variables: { data } });
-            console.log(data);
-            console.log(res);
+          onSubmit={async (data, { setErrors }) => {
+            try {
+              await register({ variables: { data } });
+            } catch (err) {
+              const errors: { [key: string]: string } = {};
+              err.graphQLErrors[0].validationErrors.forEach(
+                (validationError: any) => {
+                  Object.values(validationError.constraints).forEach(
+                    (message: any) => {
+                      errors[validationError.property] = message;
+                    }
+                  );
+                }
+              );
+              setErrors(errors);
+            }
           }}
         >
           {({ handleSubmit }) => (
