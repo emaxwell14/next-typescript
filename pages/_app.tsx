@@ -1,8 +1,7 @@
-import React from "react";
-import App from "next/app";
+import React, { Component } from "react";
 import { withApollo } from "../lib/apollo";
 
-class MyApp extends App<any> {
+class MyApp extends Component<any> {
   render() {
     const { Component, pageProps } = this.props;
     return <Component {...pageProps} />;
