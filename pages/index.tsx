@@ -3,6 +3,7 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { NextPage } from "next";
 import { LoginComponent } from "../generated/apolloComponents";
+import { withApollo } from "../lib/apollo";
 
 const IndexPage: NextPage = () => {
   return (
@@ -31,4 +32,4 @@ const IndexPage: NextPage = () => {
   );
 };
 
-export default IndexPage;
+export default withApollo(IndexPage);

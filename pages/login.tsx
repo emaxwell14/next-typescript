@@ -4,8 +4,9 @@ import Layout from "../components/Layout";
 import { InputField } from "../components/fields/InputField";
 import { LoginComponent } from "../generated/apolloComponents";
 import Router from "next/router";
+import { withApollo } from "../lib/apollo";
 
-export default () => (
+export default withApollo(() => (
   <Layout title="Login Form">
     <LoginComponent>
       {login => (
@@ -38,4 +39,4 @@ export default () => (
       )}
     </LoginComponent>
   </Layout>
-);
+));

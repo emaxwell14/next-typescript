@@ -4,8 +4,9 @@ import Layout from "../components/Layout";
 import { InputField } from "../components/fields/InputField";
 import { RegisterComponent } from "../generated/apolloComponents";
 import Router from "next/router";
+import { withApollo } from "../lib/apollo";
 
-export default () => (
+export default withApollo(() => (
   <Layout title="Registration Form">
     <RegisterComponent>
       {register => (
@@ -50,4 +51,4 @@ export default () => (
       )}
     </RegisterComponent>
   </Layout>
-);
+));

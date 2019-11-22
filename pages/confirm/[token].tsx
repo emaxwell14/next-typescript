@@ -6,8 +6,9 @@ import {
 } from "../../generated/apolloComponents";
 import { confirmUserMutation } from "../../graphql/user/mutations/confirmUser";
 import redirect from "../../lib/redirect";
+import { withApollo } from "../../lib/apollo";
 
-export default class Confirm extends React.PureComponent {
+class Confirm extends React.PureComponent {
   static async getInitialProps({
     query: { token },
     apolloClient,
@@ -33,3 +34,4 @@ export default class Confirm extends React.PureComponent {
     return <div>Something went wrong!</div>;
   }
 }
+export default withApollo(Confirm);
