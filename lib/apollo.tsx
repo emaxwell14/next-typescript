@@ -8,6 +8,7 @@ import { HttpLink } from "apollo-link-http";
 import { setContext } from "apollo-link-context";
 import { ApolloProvider } from "@apollo/react-hooks";
 import fetch from "isomorphic-unfetch";
+import redirect from "./redirect";
 
 interface Options {
   getToken: () => string;
@@ -104,6 +105,9 @@ export function withApollo(PageComponent: any, { ssr = true } = {}) {
             // Handle them in components via the data.error prop:
             // https://www.apollographql.com/docs/react/api/react-apollo.html#graphql-query-data-error
             console.error("Error while running `getDataFromTree`", error);
+            if (error.message.includes("not authenticated")) {
+              redirect(ctx, "/login");
+            }
           }
         }
 
