@@ -28,6 +28,10 @@ const Layout: React.FunctionComponent<Props> = ({
         |{" "}
         <Link href="/users">
           <a>Users List</a>
+        </Link>{" "}
+        |{" "}
+        <Link href="/register">
+          <a>Register</a>
         </Link>
       </nav>
     </header>
