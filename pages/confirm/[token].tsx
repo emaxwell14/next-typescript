@@ -1,13 +1,35 @@
 import * as React from "react";
-import { NextPageContext } from "next";
+import { MyContext } from "../../interfaces/MyContext";
+import {
+  ConfirmUserMutation,
+  ConfirmUserMutationVariables
+} from "../../generated/apolloComponents";
+import { confirmUserMutation } from "../../graphql/user/mutations/confirmUser";
+import redirect from "../../lib/redirect";
 
 export default class Confirm extends React.PureComponent {
-  static getInitialProps({ query: { token } }: NextPageContext) {
-    return { token };
+  static async getInitialProps({
+    query: { token },
+    apolloClient,
+    ...ctx
+  }: MyContext) {
+    if (!token) {
+      return {};
+    }
+    await apolloClient.mutate<
+      ConfirmUserMutation,
+      ConfirmUserMutationVariables
+    >({ mutation: confirmUserMutation, variables: { token: token as string } });
+    redirect(ctx, "/login");
+
+    // Dont need to return anything
+    return {};
   }
 
   render() {
-    console.log(this.props);
-    return <div>confirm</div>;
+    console.error(
+      "This page is just for a redirect, should all happen on server unless there is an error"
+    );
+    return <div>Something went wrong!</div>;
   }
 }
