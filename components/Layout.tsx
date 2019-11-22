@@ -22,16 +22,16 @@ const Layout: React.FunctionComponent<Props> = ({
           <a>Home</a>
         </Link>{" "}
         |{" "}
-        <Link href="/about">
-          <a>About</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/users">
-          <a>Users List</a>
+        <Link href="/hello">
+          <a>Hello</a>
         </Link>{" "}
         |{" "}
         <Link href="/register">
           <a>Register</a>
+        </Link>{" "}
+        |{" "}
+        <Link href="/login">
+          <a>Login</a>
         </Link>
       </nav>
     </header>
