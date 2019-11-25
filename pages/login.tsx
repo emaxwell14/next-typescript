@@ -1,9 +1,9 @@
-import React from "react";
-import { Formik, Field } from "formik";
-import Layout from "../components/Layout";
-import { InputField } from "../components/fields/InputField";
-import { LoginComponent } from "../generated/apolloComponents";
+import { Field, Formik } from "formik";
 import Router from "next/router";
+import React from "react";
+import { InputField } from "../components/fields/InputField";
+import Layout from "../components/Layout";
+import { LoginComponent } from "../generated/apolloComponents";
 import { withApollo } from "../lib/apollo";
 
 export default withApollo(() => (

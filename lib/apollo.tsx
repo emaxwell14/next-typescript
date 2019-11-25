@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cookie from "cookie";
-import Head from "next/head";
-import { ApolloClient } from "apollo-client";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
-import { setContext } from "apollo-link-context";
 import { ApolloProvider } from "@apollo/react-hooks";
-import fetch from "isomorphic-unfetch";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloClient } from "apollo-client";
+import { setContext } from "apollo-link-context";
 import { onError } from "apollo-link-error";
-import redirect from "./redirect";
+import { HttpLink } from "apollo-link-http";
+import cookie from "cookie";
+import fetch from "isomorphic-unfetch";
+import Head from "next/head";
 import Router from "next/router";
+import PropTypes from "prop-types";
+import React from "react";
+import redirect from "./redirect";
 
 interface Options {
   getToken: () => string;

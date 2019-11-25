@@ -1,7 +1,7 @@
-import * as React from "react";
-import Link from "next/link";
-import Layout from "../components/Layout";
 import { NextPage } from "next";
+import Link from "next/link";
+import * as React from "react";
+import Layout from "../components/Layout";
 import { LoginComponent } from "../generated/apolloComponents";
 import { withApollo } from "../lib/apollo";
 

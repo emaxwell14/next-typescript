@@ -1,12 +1,9 @@
 import * as React from "react";
-import { MyContext } from "../../interfaces/MyContext";
-import {
-  ConfirmUserMutation,
-  ConfirmUserMutationVariables
-} from "../../generated/apolloComponents";
+import { ConfirmUserMutation, ConfirmUserMutationVariables } from "../../generated/apolloComponents";
 import { confirmUserMutation } from "../../graphql/user/mutations/confirmUser";
-import redirect from "../../lib/redirect";
+import { MyContext } from "../../interfaces/MyContext";
 import { withApollo } from "../../lib/apollo";
+import redirect from "../../lib/redirect";
 
 class Confirm extends React.PureComponent {
   static async getInitialProps({
