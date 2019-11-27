@@ -32,7 +32,7 @@ export default withApollo(() => (
             <form onSubmit={handleSubmit}>
               <Field name="email" component={InputField} />
               <Field name="password" type="password" component={InputField} />
-              <button type="submit">Register</button>
+              <button type="submit">Login</button>
             </form>
           )}
         </Formik>
